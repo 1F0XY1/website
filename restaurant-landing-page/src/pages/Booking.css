@@ -1,0 +1,158 @@
+/* General page layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .booking-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+  }
+  
+  /* Booking section styling */
+  .booking-section {
+    background-color: white;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Heading styles */
+  .booking-section h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .booking-section p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  /* Confirmation message styling */
+  .confirmation-message {
+    text-align: left;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .confirmation-message h2 {
+    color: #2ecc71;
+    font-size: 2rem;
+  }
+  
+  .confirmation-message ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 15px;
+  }
+  
+  .confirmation-message ul li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Form styling */
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    text-align: left;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+    outline: none;
+  }
+  
+  /* Submit button styling */
+  .booking-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .booking-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+  }
+  
+  .booking-btn:active {
+    background-color: #1c5980;
+    transform: translateY(0);
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Pushes the footer to the bottom of the page */
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 480px) {
+    .booking-section {
+      padding: 20px;
+    }
+  
+    .booking-section h1 {
+      font-size: 1.8rem;
+    }
+  
+    .booking-section p {
+      font-size: 1rem;
+    }
+  
+    .form-group input {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  
+    .booking-btn {
+      font-size: 1rem;
+      padding: 12px;
+    }
+  }
+  

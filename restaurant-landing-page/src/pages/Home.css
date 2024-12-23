@@ -1,0 +1,246 @@
+/* General styling for the home page */
+.home {
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Light gray background for smaller screens */
+    padding: 20px;
+    margin: 0;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    background-image: url('../images/welcome.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 80px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%; /* Make it take up full width */
+    max-width: 1000px; /* Set a max width after a certain point */
+    margin: 0 auto; /* Center the section horizontally */
+    transition: padding 0.3s ease, margin 0.3s ease; /* Smooth transition for padding and margin */
+}
+
+/* Background overlay for text */
+.welcome-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 1;
+    border-radius: 8px;
+}
+
+/* Text inside the welcome section */
+.welcome-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-section h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+
+/* Button styling */
+.cta-button {
+    display: inline-block;
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #555555;
+}
+
+/* Popular Menu Section */
+.popular-menu {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.popular-menu h2 {
+    font-size: 36px;
+    color: #333333;
+    margin-bottom: 30px;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.menu-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.menu-item h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.menu-item p {
+    font-size: 16px;
+    color: #777777;
+    margin-bottom: 10px;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Promo Banner Section */
+.promo-banner {
+    background-image: url('../images/offer.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 40px 0;
+    position: relative;
+}
+
+/* Background overlay for promo-banner */
+.promo-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 1;
+    border-radius: 8px;
+}
+
+/* Text inside the promo-banner */
+.promo-banner > * {
+    position: relative;
+    z-index: 2;
+}
+
+.promo-banner h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.promo-banner p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* CTA Section */
+.cta-section {
+    background-image: url('../images/booking.avif');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Background overlay for cta-section */
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 1;
+    border-radius: 8px;
+}
+
+/* Text inside the cta-section */
+.cta-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-section .cta-button {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.cta-section .cta-button:hover {
+    background-color: #555555;
+}
+
+
+@media (min-width: 1200px) {
+    .home {
+        padding: 0 60px; /* Add extra space on left and right for larger screens */
+        background-color: #f2f2f2; /* Add light background for extra space */
+    }
+
+    .welcome-section {
+        padding: 100px 20px; /* Increase padding on large screens */
+        margin: 0 auto; /* Center the section */
+    }
+    .promo-banner {
+        padding: 120px 20px; /* Increase padding on large screens */
+        max-width: 1000px; /* Fix the max width of the section */
+        margin: 0 auto; /* Center the section */
+    }
+    .cta-section {
+        padding: 10px 20px; /* Increase padding on large screens */
+        max-width: 1000px; /* Fix the max width of the section */
+        margin: 0 auto; /* Center the section */
+    }
+
+        
+}
+

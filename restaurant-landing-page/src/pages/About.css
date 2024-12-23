@@ -1,0 +1,223 @@
+/* General Styles for About Page */
+.about-page {
+  font-family: Arial, sans-serif;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+
+/* About Section */
+.about-section {
+  text-align: center;
+  background-image: url('https://quark-studio.com/wp-content/uploads/2023/01/Shisha-1_1280X960.jpg'); /* Background image for the About section */
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 80px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow around the section */
+  margin-bottom: 40px;
+  position: relative;
+  width: 100%; /* Make it take up full width */
+  max-width: 1000px; /* Set a max width after a certain point */
+  margin: 0 auto; /* Center the section horizontally */
+  transition: padding 0.3s ease, margin 0.3s ease; /* Smooth transition for padding and margin */
+}
+
+/* Background overlay for text */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  z-index: 1;
+  border-radius: 8px;
+}
+
+/* Text inside the about section */
+.about-section > * {
+  position: relative;
+  z-index: 2; /* Make sure the text is on top of the overlay */
+}
+
+.about-section h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Similar text shadow as in the Welcome section */
+}
+
+.about-description {
+  font-size: 20px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Adding the same shadow to description text */
+}
+
+
+/* Mission & Vision Section */
+.mission-vision-section {
+  display: flex;
+  justify-content: space-between; /* Ensure space between the sections */
+  align-items: flex-start; /* Ensure they align at the top */
+  margin-top: 50px;
+  padding: 50px 0;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mission and Vision Containers */
+.mission, .vision {
+  width: 45%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative; /* Ensure the ::before is positioned correctly */
+}
+
+/* Add background image to Mission */
+.mission {
+  background-image: url('https://resdiary.com/hubfs/hospitality%20staff.jpeg'); /* Background image for Mission */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+/* Add overlay to Mission */
+.mission::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  z-index: 0; /* Ensure overlay stays behind the text */
+  border-radius: 8px;
+}
+
+/* Text inside Mission */
+.mission h2, .mission p {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  position: relative; /* Ensure text stays above the overlay */
+  z-index: 1; /* Ensure text stays above the overlay */
+}
+
+/* Add background image to Vision */
+.vision {
+  background-image: url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?cs=srgb&dl=pexels-fauxels-3184292.jpg&fm=jpg'); /* Background image for Vision */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+/* Add overlay to Vision */
+.vision::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  z-index: 0; /* Ensure overlay stays behind the text */
+  border-radius: 8px;
+}
+
+/* Text inside Vision */
+.vision h2, .vision p {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  position: relative; /* Ensure text stays above the overlay */
+  z-index: 1; /* Ensure text stays above the overlay */
+}
+
+/* Mission & Vision Header Styles */
+.mission h2, .vision h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #fff; /* Ensure the text is white */
+}
+
+.mission p, .vision p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #ffffff; /* Ensure the text is white */
+}
+
+/* Responsive Adjustments for Mission & Vision */
+@media (max-width: 768px) {
+  .mission-vision-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mission, .vision {
+    width: 80%;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+/* Gallery Container */
+.gallery-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Gallery Images */
+.gallery-images {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+/* Individual Images */
+.gallery-images img {
+  flex-shrink: 0;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  transform: scale(1);
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-btn.left {
+  left: 10px;
+}
+
+.scroll-btn.right {
+  right: 10px;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

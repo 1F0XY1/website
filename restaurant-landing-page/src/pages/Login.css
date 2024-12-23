@@ -1,0 +1,151 @@
+/* Container for the entire page */
+.login-container {
+  min-height: calc(100vh - 80px); /* Ensure it takes the remaining space after the header */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f1f3f5; /* Light grey background for a softer appearance */
+  font-family: 'Roboto', sans-serif; /* Modern font for a clean look */
+}
+
+/* Form styling */
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out; /* Smooth fade-in animation */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.login-form h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #333;
+  font-weight: 700;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+/* Input field styling */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* Focus state for inputs */
+.form-group input:focus {
+  border-color: #3498db;
+  background-color: #ffffff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Subtle blue glow */
+}
+
+/* Button styling */
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #3498db; /* Blue color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s ease;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #2980b9;
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+button:active {
+  background-color: #1c5980;
+  transform: translateY(0); /* Remove lift effect */
+}
+
+/* Switch between login and registration */
+.switch-auth {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.switch-auth a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.switch-auth a:hover {
+  text-decoration: underline;
+  color: #2980b9; /* Darker blue on hover */
+}
+
+/* Keyframes for smooth fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 100%;
+  }
+
+  .login-form h2 {
+    font-size: 24px;
+  }
+
+  .form-group input {
+    padding: 12px 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,78 @@
+/* Footer styling */
+.footer {
+    background-color: #272727;
+    color: #ecf0f1;
+    padding: 15px 10px;  /* Reduced padding to make the footer smaller */
+    text-align: center;
+    font-size: 13px;  /* Reduced font size */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;       /* Ensure footer spans the full width */
+}
+
+/* Footer container with flexbox */
+.footer-container {
+    display: flex;
+    flex-direction: column;  /* Arrange items in a column */
+    align-items: center;  /* Center align all items */
+    gap: 15px;  /* Adjust the gap between sections */
+}
+
+/* Footer info - Address, Phone, and Email */
+.footer-info p {
+    font-size: 13px;
+    margin: 0;
+    white-space: nowrap;  /* Prevent text from wrapping */
+}
+
+/* Footer social section with social media icons */
+.footer-social h4 {
+    font-size: 13px;  /* Reduced font size */
+}
+
+.footer-social .social-icons {
+    display: flex;
+    gap: 12px;  /* Reduced gap between social icons */
+    justify-content: center;
+}
+
+.footer-social .social-icons a {
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.footer-social .social-icons a:hover {
+    transform: scale(1.1);
+}
+
+/* Footer bottom with copyright */
+.footer-bottom {
+    margin-top: 15px;
+    font-size: 12px;  /* Reduced font size */
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Ensure the content area adjusts and is not overlapped by the footer */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;  /* Ensure the body takes up at least the full viewport height */
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Full height of the viewport */
+}
+
+.main-content {
+    flex: 1;  /* Allow the main content to grow and take up the remaining space */
+    padding-bottom: 80px;  /* Add padding equal to footer height */
+}
+
+/* Optional: You can add a bit of padding at the top of the content area */
+.main-content h1 {
+    padding-top: 20px;
+}

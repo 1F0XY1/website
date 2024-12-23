@@ -1,0 +1,121 @@
+/* General Reset */
+body, ul, li, h1, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  
+  /* Body Content Adjustment for Fixed Header */
+  body {
+    padding-top: 80px; /* Adjust based on the height of the header */
+  }
+  
+  /* Header Container */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #272727;  /* Updated header color */
+    color: #ecf0f1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;  /* Fix the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;  /* Ensure header stays above other content */
+  }
+  
+  /* Logo */
+  .logo h1 {
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+  }
+  
+  /* Hamburger Menu Button */
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: none;  /* Hide the links by default on small screens */
+    position: absolute;
+    top: -100%;  /* Initially off-screen */
+    right: 20px;
+    background-color: #272727;
+    border-radius: 8px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: top 0.5s ease-out;
+  }
+  
+  /* When the navbar is open, it will slide down */
+  .navbar.open {
+    display: flex;  /* Show the links when menu is open */
+    flex-direction: column;
+    gap: 10px;
+    top: 50px;  /* Move the navbar into view */
+  }
+  
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .navbar ul li a {
+    color: #ecf0f1;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Hover effect on links */
+  .navbar ul li a:hover {
+    background-color: #707070;  /* Change background color on hover */
+    border-radius: 4px;
+  }
+  
+  /* Mobile and Tablet Screens - Hide the navbar by default and show only when clicked */
+  @media (max-width: 768px) {
+    .navbar {
+      display: none;  /* Navbar hidden */
+    }
+  
+    .navbar.open {
+      display: flex;  /* Navbar is shown when menu is open */
+    }
+  
+    .hamburger {
+      display: block;  /* Show hamburger icon */
+    }
+  }
+  
+  /* Large Screens - Navbar is always visible */
+  @media (min-width: 769px) {
+    .navbar {
+      display: flex;  /* Navbar is always visible */
+      position: static;  /* Remove absolute positioning */
+      top: auto;  /* No need for animation */
+      right: auto;  /* No need to align to the right */
+      gap: 15px;  /* Space out links horizontally */
+    }
+  
+    .navbar ul {
+      display: flex;  /* Display the navbar items in a row */
+      flex-direction: row;
+    }
+  
+    .hamburger {
+      display: none;  /* Hide hamburger icon on large screens */
+    }
+  }
+  
