@@ -1,0 +1,204 @@
+﻿Restaurant Management System
+
+Overview
+A full-stack web application for restaurant management, featuring user authentication, menu management, booking system, and contact functionality.
+
+Features
+User Authentication (Register/Login)
+Menu Display
+Table Booking System
+Contact Form
+Admin Dashboard
+Order Management
+Responsive Design
+
+
+
+Tech Stack
+
+Frontend
+React.js
+React Router DOM
+CSS3
+HTML5
+
+Backend
+Spring Boot
+Spring Data JPA
+MySQL Database
+Maven
+
+
+Prerequisites
+Node.js (v14 or higher)
+Java JDK 17
+MySQL
+Maven
+
+
+=====================API Endpoints================
+1) User Management:
+
+# User Registration
+POST /api/users/register
+{
+    "id": 1,
+    "username": "JohnDoe",
+    "email": "johndoe@example.com",
+    "password": "password123"
+}
+
+# User Login
+POST /api/users/login
+{
+    "email": "johndoe@example.com",
+    "password": "password123"
+}
+
+# Get All Users (Admin)
+GET /api/users
+
+# Get User by ID
+GET /api/users/{id}
+
+
+2) Contact Form:
+# Submit Contact Form
+POST /api/contacts
+{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "message": "Test message"
+}
+
+# Get All Contact Submissions
+GET /api/contacts
+
+# Get Contact by ID
+GET /api/contacts/{id}
+
+3) Menu Items:
+# Get All Menu Items
+GET /api/menu
+
+# Get Menu Item by ID
+GET /api/menu/{id}
+
+# Add New Menu Item (Admin)
+POST /api/menu
+{
+    "name": "Burger",
+    "description": "Classic beef burger",
+    "price": 9.99,
+    "category": "Main Course",
+    "imageUrl": "burger.jpg"
+}
+
+# Update Menu Item (Admin)
+PUT /api/menu/{id}
+{
+    "name": "Cheeseburger",
+    "description": "Classic beef burger with cheese",
+    "price": 10.99,
+    "category": "Main Course",
+    "imageUrl": "cheeseburger.jpg"
+}
+
+# Delete Menu Item (Admin)
+DELETE /api/menu/{id}
+
+4) Bookings:
+# Create New Booking
+POST /api/bookings
+{
+    "userId": 1,
+    "date": "2024-01-25",
+    "time": "19:00",
+    "numberOfGuests": 4,
+    "specialRequests": "Window seat preferred"
+}
+
+# Get All Bookings (Admin)
+GET /api/bookings
+
+# Get User's Bookings
+GET /api/bookings/user/{userId}
+
+# Get Booking by ID
+GET /api/bookings/{id}
+
+# Update Booking
+PUT /api/bookings/{id}
+{
+    "date": "2024-01-26",
+    "time": "20:00",
+    "numberOfGuests": 5,
+    "specialRequests": "Birthday celebration"
+}
+
+# Delete Booking
+DELETE /api/bookings/{id}
+
+5) Orders:
+# Create New Order
+POST /api/orders
+{
+    "userId": 1,
+    "items": [
+        {
+            "menuItemId": 1,
+            "quantity": 2
+        },
+        {
+            "menuItemId": 3,
+            "quantity": 1
+        }
+    ],
+    "totalAmount": 29.97,
+    "deliveryAddress": "123 Main St",
+    "specialInstructions": "No onions"
+}
+
+# Get All Orders (Admin)
+GET /api/orders
+
+# Get User's Orders
+GET /api/orders/user/{userId}
+
+# Get Order by ID
+GET /api/orders/{id}
+
+# Update Order Status (Admin)
+PUT /api/orders/{id}/status
+{
+    "status": "PREPARING"
+}
+
+# Cancel Order
+DELETE /api/orders/{id}
+
+
+
+Security Considerations
+Password encryption (to be implemented)
+JWT authentication (to be implemented)
+Input validation
+CORS configuration
+
+
+Future Enhancements
+1.Password encryption
+2.JWT authentication
+3. Order tracking system
+4.Payment integration
+5.Email notifications
+6. User profile management
+
+Contributing
+1.Fork the repository
+2.Create your feature branch
+3.Commit your changes
+4.Push to the branch
+5. Create a Pull Request
+
+
