@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Contact.css'; // Add your custom styling for the Contact page
+import './Contact.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +7,7 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [status, setStatus] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,42 +17,51 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., send data to backend or email)
-    console.log('Form submitted:', formData);
-    // Reset form after submission
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
+    setStatus('Sending...');
+
+    try {
+      const response = await fetch('http://localhost:8080/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus('Message sent successfully!');
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+      } else {
+        const error = await response.text();
+        setStatus('Error: ' + error);
+      }
+    } catch (error) {
+      setStatus('Error sending message. Please try again.');
+      console.error('Error:', error);
+    }
   };
 
   return (
     <div className="contact-page">
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+      <br />
+      <br />
+      <br />
+      <br />
       
       <section className="contact-section">
         <div className="contact-container">
           <h1>Contact Us</h1>
-          <p className="contact-description">
-            Have any questions or want to make a reservation? Reach out to us through the form below, or contact us directly.
-          </p>
+          {status && <p className={`status-message ${status.includes('Error') ? 'error' : 'success'}`}>{status}</p>}
           
           {/* Contact Information */}
           <div className="contact-info">
-            <h2>Our Location</h2>
-            <p>Address: [Restaurant Address]</p>
-            <p>Phone: +1234567890</p>
-            <p>Email: contact@restaurant.com</p>
-            {/* Optionally, you can embed a map here */}
-            <div className="map-container">
-            <iframe width="691" height="539" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=691&amp;height=539&amp;hl=en&amp;q=KG,%20Karakol%20Karakol+(The%20Coastal%20Bite)&amp;t=k&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://hauckautoren.de/schreiben-einer-doktorarbeit-dissertation'>Dissertation Ghostwriting</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=3ae0c596ec575dc1a3e0fd55d193e9679143318e'></script>
-            </div>
+            {/* ... existing contact info ... */}
           </div>
 
           {/* Contact Form */}

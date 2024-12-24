@@ -16,7 +16,7 @@ const Order = () => {
   const fetchMenuItems = async () => {
     try {
       const data = await menuService.getAllMenuItems();
-      setMenuItems(data || []);
+      setMenuItems(data || []); // Provide empty array as fallback
       const initialQuantities = (data || []).reduce(
         (acc, item) => ({
           ...acc,
@@ -70,33 +70,6 @@ const Order = () => {
     }, 0).toFixed(2);
   };
 
-  // Add this handleOrder function
-  const handleOrder = async () => {
-    try {
-      if (cart.length === 0) {
-        alert('Your cart is empty!');
-        return;
-      }
-
-      const orderData = {
-        items: cart.map(item => ({
-          menuItemId: item.id,
-          quantity: item.quantity,
-          price: item.price
-        })),
-        totalAmount: parseFloat(calculateTotal())
-      };
-
-      // You can implement the actual order submission here
-      // For now, just show a success message
-      alert(`Order placed successfully! Total: $${calculateTotal()}`);
-      setCart([]); // Clear the cart after successful order
-    } catch (error) {
-      console.error('Error placing order:', error);
-      alert('Failed to place order. Please try again.');
-    }
-  };
-
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div className="error">{error}</div>;
 
@@ -135,46 +108,48 @@ const Order = () => {
         </div>
       </section>
 
-      <aside className="order-cart">
-        <h2>Cart</h2>
-        {cart.length === 0 ? (
-          <p>Your cart is empty</p>
-        ) : (
-          <>
-            <ul className="cart-items">
-              {cart.map((item) => (
-                <li key={item.id} className="cart-item">
-                  <div className="cart-item-info">
-                    <span>{item.name}</span>
-                    <span>x {item.quantity}</span>
-                  </div>
-                  <div className="cart-item-price">
-                    ${((Number(item.price) || 0) * (Number(item.quantity) || 0)).toFixed(2)}
-                    <button
-                      className="remove-btn"
-                      onClick={() => handleRemoveFromCart(item.id)}
-                    >
-                      ×
-                    </button>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <div className="cart-total">
-              <strong>Total:</strong> ${calculateTotal()}
+      // ... rest of the code remains the same ...
+
+<aside className="order-cart">
+  <h2>Cart</h2>
+  {cart.length === 0 ? (
+    <p>Your cart is empty</p>
+  ) : (
+    <>
+      <ul className="cart-items">
+        {cart.map((item) => (
+          <li key={item.id} className="cart-item">
+            <div className="cart-item-info">
+              <span>{item.name}</span>
+              <span>x {item.quantity}</span>
             </div>
-            <button
-              className="order-btn"
-              onClick={handleOrder}
-              disabled={cart.length === 0}
-            >
-              Order
-            </button>
-          </>
-        )}
-      </aside>
+            <div className="cart-item-price">
+              ${((Number(item.price) || 0) * (Number(item.quantity) || 0)).toFixed(2)}
+              <button
+                className="remove-btn"
+                onClick={() => handleRemoveFromCart(item.id)}
+              >
+                ×
+              </button>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="cart-total">
+        <strong>Total:</strong> ${calculateTotal()}
+      </div>
+      <button
+        className="order-btn"
+        onClick={handleOrder}
+        disabled={cart.length === 0}
+      >
+        Order
+      </button>
+    </>
+  )}
+</aside>
     </div>
   );
 };
 
-export default Order;
+export default Order; 

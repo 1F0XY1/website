@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# Restaurant Landing Page Project
+### Final Project - Object-Oriented Programming
+### Spring 2024
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Student Information
+- **Name:** Bekhan Rashidbekov
+- **Student ID:** 1000002315
+- **Course:** Web/Object-Oriented Programming
+- **Instructor:** Nurlan Shaidullaev
+- **Date:** December 24, 2024
 
-## Available Scripts
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Technologies Used](#technologies-used)
+3. [Features Implemented](#features-implemented)
+4. [Installation Guide](#installation-guide)
+5. [Screenshots](#screenshots)
+6. [Challenges and Solutions](#challenges-and-solutions)
+7. [References](#references)
 
-In the project directory, you can run:
+## Project Overview
+This project is a full-stack restaurant management system that combines a React frontend with a Spring Boot backend. The system allows users to browse menus, place orders, and manage their profiles while providing a seamless dining experience.
 
-### `npm start`
+### Purpose
+- Create an intuitive restaurant ordering system
+- Implement secure user authentication
+- Demonstrate full-stack development skills
+- Practice object-oriented programming principles
+- Create responsive and user-friendly interface
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
+- React.js 18
+- React Router 6
+- CSS3
+- JavaScript (ES6+)
+- React Icons
+- Axios for API calls
 
-### `npm test`
+### Backend
+- Spring Boot 3.0
+- Java 17
+- MySQL Database
+- Spring Security
+- JPA/Hibernate
+- Maven
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features Implemented
 
-### `npm run build`
+### 1. User Authentication
+- User registration
+- Login/logout functionality
+- Profile management
+- Secure password handling
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. Menu System
+- Dynamic menu display
+- Item categorization
+- Price display
+- Shopping cart functionality
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 3. User Profile
+- Personal information management
+- Password updates
+- Email updates
+- Profile viewing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Responsive Design
+- Mobile-friendly interface
+- Dynamic navigation
+- Adaptive layouts
+- Interactive elements
 
-### `npm run eject`
+## Installation Guide
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
+- Node.js (v14 or higher)
+- Java JDK 17
+- MySQL
+- Maven
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+link to the video in YouTube:
+https://youtu.be/SpTg-4HmQKg
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Challanges: 
+Hard to connect back with front side. 
+Solotuion:
+AI provided assistance

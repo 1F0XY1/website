@@ -1,121 +1,156 @@
-/* General Reset */
-body, ul, li, h1, a {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    box-sizing: border-box;
-  }
-  
-  /* Body Content Adjustment for Fixed Header */
-  body {
-    padding-top: 80px; /* Adjust based on the height of the header */
-  }
-  
-  /* Header Container */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #272727;  /* Updated header color */
-    color: #ecf0f1;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    position: fixed;  /* Fix the header at the top */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;  /* Ensure header stays above other content */
-  }
-  
-  /* Logo */
-  .logo h1 {
-    font-size: 24px;
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-  }
-  
-  /* Hamburger Menu Button */
-  .hamburger {
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #272727;  /* Changed to dark background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;  /* Changed to white */
+  text-decoration: none;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #ffffff;  /* Changed to white */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #ffffff;  /* Changed to white */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #cccccc;  /* Changed to light gray for hover state */
+}
+
+.user-menu-container {
+  position: relative;
+}
+
+.user-menu-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #ffffff;  /* Changed to white */
+  padding: 0.5rem;
+}
+
+.user-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #272727;  /* Changed to match header */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 0.5rem;
+  min-width: 150px;
+}
+
+.user-menu button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #ffffff;  /* Changed to white */
+  font-size: 1rem;
+  text-align: left;
+}
+
+.user-menu button:hover {
+  background-color: #383838;  /* Slightly lighter than background for hover */
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
     display: block;
-    background: none;
-    border: none;
-    cursor: pointer;
   }
-  
-  /* Navbar */
-  .navbar {
-    display: none;  /* Hide the links by default on small screens */
+
+  .nav-links {
+    display: none;
     position: absolute;
-    top: -100%;  /* Initially off-screen */
-    right: 20px;
-    background-color: #272727;
-    border-radius: 8px;
-    padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: top 0.5s ease-out;
-  }
-  
-  /* When the navbar is open, it will slide down */
-  .navbar.open {
-    display: flex;  /* Show the links when menu is open */
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #272727;  /* Changed to match header */
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     flex-direction: column;
-    gap: 10px;
-    top: 50px;  /* Move the navbar into view */
+    gap: 1rem;
   }
-  
-  .navbar ul {
+
+  .nav-links.active {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
   }
-  
-  .navbar ul li a {
-    color: #ecf0f1;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 10px;
-    transition: background-color 0.3s ease-in-out;
+
+  .user-menu {
+    position: static;
+    box-shadow: none;
+    padding: 0;
   }
-  
-  /* Hover effect on links */
-  .navbar ul li a:hover {
-    background-color: #707070;  /* Change background color on hover */
-    border-radius: 4px;
+
+  .user-menu button {
+    padding: 0.5rem 0;
+    color: #ffffff;  /* Ensure white text in mobile view */
   }
-  
-  /* Mobile and Tablet Screens - Hide the navbar by default and show only when clicked */
-  @media (max-width: 768px) {
-    .navbar {
-      display: none;  /* Navbar hidden */
-    }
-  
-    .navbar.open {
-      display: flex;  /* Navbar is shown when menu is open */
-    }
-  
-    .hamburger {
-      display: block;  /* Show hamburger icon */
-    }
+
+  /* Reduce spacing around navbar toggle */
+  .nav {
+    padding: 0.5rem 1rem;
   }
-  
-  /* Large Screens - Navbar is always visible */
-  @media (min-width: 769px) {
-    .navbar {
-      display: flex;  /* Navbar is always visible */
-      position: static;  /* Remove absolute positioning */
-      top: auto;  /* No need for animation */
-      right: auto;  /* No need to align to the right */
-      gap: 15px;  /* Space out links horizontally */
-    }
-  
-    .navbar ul {
-      display: flex;  /* Display the navbar items in a row */
-      flex-direction: row;
-    }
-  
-    .hamburger {
-      display: none;  /* Hide hamburger icon on large screens */
-    }
+
+  .nav-toggle {
+    padding: 0.25rem;
   }
-  
+
+  /* Ensure menu items are left-aligned */
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a,
+  .user-menu-button {
+    padding: 0.5rem 0;
+    width: 100%;
+    display: block;
+    color: #ffffff;  /* Ensure white text in mobile view */
+  }
+}

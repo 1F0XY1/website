@@ -1,49 +1,65 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import menuItems from './MenuData'; // Import shared menu data
+import axios from 'axios';
 import './Menu.css';
 
 const Menu = () => {
+  const [menuItems, setMenuItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Group menu items by category
-  const categorizedItems = menuItems.reduce((acc, item) => {
-    if (!acc[item.category]) {
-      acc[item.category] = [];
-    }
-    acc[item.category].push(item);
-    return acc;
-  }, {});
+  useEffect(() => {
+    fetchMenuItems();
+  }, []);
 
-  const handleItemClick = (item) => {
-    navigate('/order', { state: { item } });
+  const fetchMenuItems = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/api/menu');
+      console.log('Menu data:', response.data);
+      setMenuItems(response.data);
+      setLoading(false);
+    } catch (err) {
+      console.error('Error fetching menu:', err);
+      setError('Failed to load menu items');
+      setLoading(false);
+    }
   };
+
+  const handleItemClick = () => {
+    navigate('/order');
+  };
+
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">{error}</div>;
 
   return (
     <div className="menu-container">
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <h2>Our Menu</h2>
-      <p className="menu-description">
-        Explore our delicious offerings, crafted with love and the finest ingredients!
-      </p>
-      {Object.entries(categorizedItems).map(([category, items]) => (
-        <div key={category} className="category-section">
-          <h2 className="category-title">{category}</h2>
-          <div className="menu-items">
-            {items.map((item) => (
-              <div key={item.id} className="menu-item" onClick={() => handleItemClick(item)}>
-                <img src={item.image} alt={item.name} />
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
-                <span className="price">${item.price.toFixed(2)}</span>
-              </div>
-            ))}
+      <h1>Our Menu</h1>
+      <div className="menu-grid">
+        {menuItems.map((item) => (
+          <div 
+            key={item.id} 
+            className="menu-item" 
+            onClick={handleItemClick}
+            role="button"
+            tabIndex={0}
+          >
+            {item.image && (
+              <img 
+                src={item.image} 
+                alt={item.name} 
+                className="menu-item-image"
+              />
+            )}
+            <div className="menu-item-content">
+              <h3>{item.name}</h3>
+              <p className="menu-item-description">{item.description}</p>
+              <p className="menu-item-price">${Number(item.price).toFixed(2)}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
